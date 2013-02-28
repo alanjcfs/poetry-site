@@ -2,7 +2,10 @@ class PoemsController < ApplicationController
   # GET /poems
   # GET /poems.json
   def index
-    @poems = Poem.order('johnson ASC').page params[:page]
+    # @poems = Poem.order('johnson ASC').page params[:page]
+
+    @q = Poem.search(params[:q])
+    @poems = @q.result(:distinct => true).order('johnson ASC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -32,7 +35,7 @@ class PoemsController < ApplicationController
   #   end
   # end
 
-  # # GET /poems/1/edit
+  # GET /poems/1/edit
   # def edit
   #   @poem = Poem.find(params[:id])
   # end
@@ -53,8 +56,8 @@ class PoemsController < ApplicationController
   #   end
   # end
 
-  # # PUT /poems/1
-  # # PUT /poems/1.json
+  # PUT /poems/1
+  # PUT /poems/1.json
   # def update
   #   @poem = Poem.find(params[:id])
 

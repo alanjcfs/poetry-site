@@ -1,5 +1,5 @@
 class Poem < ActiveRecord::Base
-  attr_accessible :johnson, :text
+  attr_accessible :johnson, :text, :title
 
   validates :johnson, uniqueness: true
   

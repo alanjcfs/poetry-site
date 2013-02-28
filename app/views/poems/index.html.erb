@@ -1,5 +1,11 @@
 <h1>Listing poems</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :text_cont %>
+  <%= f.text_field :text_cont %>
+  <%= f.submit %>
+<% end %>
+
 <table>
   <tr>
     <th>Johnson</th>
