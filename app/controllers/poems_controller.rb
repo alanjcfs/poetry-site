@@ -2,7 +2,7 @@ class PoemsController < ApplicationController
   # GET /poems
   # GET /poems.json
   def index
-    @poems = Poem.all
+    @poems = Poem.order('johnson ASC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
