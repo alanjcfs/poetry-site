@@ -14,22 +14,27 @@ task tweet: :environment do
   noko = Nokogiri.parse(poem.text)
   text = noko.text
   array = text.split("\n\n")
-  array.each do |stanza|
-    if stanza.size < 140
-      Twitter.update(stanza)
-      sleep 60;
-    else
-      split_stanza = stanza.split("\n")
-      split_stanza.inject('') do |tweet, line|
-        tweet_line = tweet + "\n" + line
-        if tweet_line.size >= 130
-          Twitter.update(tweet)
-          sleep 60;
-          line
-        else
-          tweet_line
+
+  begin
+    array.each do |stanza|
+      if stanza.size < 140
+        Twitter.update(stanza)
+        sleep 60;
+      else
+        split_stanza = stanza.split("\n")
+        split_stanza.inject('') do |tweet, line|
+          tweet_line = tweet + "\n" + line
+          if tweet_line.size >= 130
+            Twitter.update(tweet)
+            sleep 60;
+            line
+          else
+            tweet_line
+          end
         end
       end
     end
+  rescue => e
+    logger.error e
   end
 end
