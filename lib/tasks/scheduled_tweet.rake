@@ -10,20 +10,21 @@ task tweet: :environment do
   end
   rand = SecureRandom.random_number(Poem.count)
   poem = Poem.find(rand)
-  client = Twitter::Client.new
 
   noko = Nokogiri.parse(poem.text)
   text = noko.text
   array = text.split("\n\n")
   array.each do |stanza|
     if stanza.size < 140
-      client.tweet(stanza)
+      Twitter.update(stanza)
+      sleep 60;
     else
       split_stanza = stanza.split("\n")
       split_stanza.inject('') do |tweet, line|
         tweet_line = tweet + "\n" + line
         if tweet_line.size >= 130
-          client.tweet(tweet)
+          Twitter.update(tweet)
+          sleep 60;
           line
         else
           tweet_line
