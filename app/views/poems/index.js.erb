@@ -1,0 +1,2 @@
+$('#poems-list').html('<%= escape_javascript(render(@poems)) %>')
+$('#paginator').html('<%= escape_javascript(paginate @poems, remote: true) %>')

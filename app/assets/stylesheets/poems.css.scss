@@ -1,5 +1,9 @@
 // Place all the styles related to the poems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// @import 'bootstrap';
-// @import "blueprint/grid"
+@import "bootstrap";
+
+$blue: #3bbfce;
+#johnson {
+  color: darken($blue, 9%);
+}

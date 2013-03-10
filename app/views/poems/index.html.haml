@@ -1,25 +1,28 @@
-%h1 Listing poems
+%div.row.span12
+  %h1 Listing poems
 
-= search_form_for @q do |f|
-  = f.label :text_cont
-  = f.text_field :text_cont
-  = f.submit
-end
+%div.row
+  .span12
+    %h2.search-query Search by text in poem
+    = search_form_for @q do |f|
+      = f.label :text_cont
+      = f.text_field :text_cont
+      = f.submit
 
-%table
-  %thead
-    %tr
-      %th Johnson
-      %th Title
-  %tfoot
-    %tr
-      %th Johnson
-      %th Title
-  - @poems.each do |poem|
-    %tr
-      %td= poem.johnson
-      %td= link_to poem, poem
+%div.row
+  .span12#paginator
+    = paginate @poems
 
-= paginate @poems
-
-%br
+%div.row
+  .span16
+    %table
+      %thead
+        %tr
+          %th Johnson
+          %th Title
+      %tfoot
+        %tr
+          %th Johnson
+          %th Title
+      %tbody#poems-list
+        = render @poems

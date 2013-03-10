@@ -9,6 +9,7 @@ class PoemsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render json: @poems }
     end
   end
