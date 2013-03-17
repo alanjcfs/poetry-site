@@ -1,5 +1,5 @@
 PoetrySite::Application.routes.draw do
-  resources :poems, only: [:index, :show]
+  resources :poems, only: [:index, :show, :edit, :update]
 
   root to: 'poems#index'
 

@@ -37,9 +37,9 @@ class PoemsController < ApplicationController
   # end
 
   # GET /poems/1/edit
-  # def edit
-  #   @poem = Poem.find(params[:id])
-  # end
+  def edit
+    @poem = Poem.find(params[:id])
+  end
 
   # # POST /poems
   # # POST /poems.json
@@ -59,19 +59,19 @@ class PoemsController < ApplicationController
 
   # PUT /poems/1
   # PUT /poems/1.json
-  # def update
-  #   @poem = Poem.find(params[:id])
+  def update
+    @poem = Poem.find(params[:id])
 
-  #   respond_to do |format|
-  #     if @poem.update_attributes(params[:poem])
-  #       format.html { redirect_to @poem, notice: 'Poem was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @poem.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @poem.update_attributes(params[:poem])
+        format.html { redirect_to @poem, notice: 'Poem was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @poem.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # # DELETE /poems/1
   # # DELETE /poems/1.json
