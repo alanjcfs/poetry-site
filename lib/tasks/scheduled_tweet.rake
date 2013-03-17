@@ -11,13 +11,13 @@ task tweet: :environment do
   rand = SecureRandom.random_number(Poem.count)
   poem = Poem.find(rand)
 
-  noko = Nokogiri::HTML::Document.parse(poem.text)
+  noko = Nokogiri::HTML::Document.parse(poem.text.strip)
   text = noko.xpath('//p').inner_html
   array = text.split("<br><br>")
 
   begin
     array.each do |stanza|
-      stanza = stanza.gsub(/<br>/, "")
+      stanza = Nokogiri::HTML::Document.parse(stanza).text
       if stanza.size < 140
         Twitter.update(stanza)
         sleep 60;
