@@ -23,7 +23,7 @@ task tweet: :environment do
         sleep 60;
       else
         split_stanza = stanza.split("\n")
-        split_stanza.inject('') do |tweet, line|
+        last_stanza = split_stanza.inject('') do |tweet, line|
           tweet_line = tweet + "\n" + line
           if tweet_line.size >= 130
             Twitter.update(tweet)
@@ -32,6 +32,10 @@ task tweet: :environment do
           else
             tweet_line
           end
+        end
+        unless last_stanza.empty?
+          Twitter.update(last_stanza)
+          sleep 60;
         end
       end
     end
