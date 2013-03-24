@@ -5,5 +5,5 @@ one:
   text: MyText
 
 two:
-  johnson: 1
-  text: MyText
+  johnson: 2
+  text: AnotherText
