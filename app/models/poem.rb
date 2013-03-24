@@ -1,5 +1,5 @@
 class Poem < ActiveRecord::Base
-  attr_accessible :johnson, :text, :title
+  include ActiveModel::ForbiddenAttributesProtection
 
   validates :johnson, uniqueness: true
   
