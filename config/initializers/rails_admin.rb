@@ -3,6 +3,9 @@
 
 RailsAdmin.config do |config|
 
+  # Add CanCan authorization
+  config.authorize_with :cancan
+
 
   ################  Global configuration  ################
 

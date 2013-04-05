@@ -1,4 +1,5 @@
 class PoemsController < ApplicationController
+  load_and_authorize_resource
   # GET /poems
   # GET /poems.json
   def index
