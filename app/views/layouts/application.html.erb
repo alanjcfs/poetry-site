@@ -8,9 +8,8 @@
 </head>
 <body>
 
-  <%= flash_notice %>
-
   <div id="container" class="container">
+    <%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
     <%= yield %>
   </div>
 
