@@ -45,7 +45,7 @@ class PoemsController < ApplicationController
   # POST /poems
   # POST /poems.json
   def create
-    @poem = Poem.new(params[:poem])
+    @poem = Poem.new(poem_params)
 
     respond_to do |format|
       if @poem.save
@@ -64,7 +64,7 @@ class PoemsController < ApplicationController
     @poem = Poem.find(params[:id])
 
     respond_to do |format|
-      if @poem.update_attributes(params[:poem])
+      if @poem.update_attributes(poem_params)
         format.html { redirect_to @poem, notice: 'Poem was successfully updated.' }
         format.json { head :no_content }
       else
@@ -84,5 +84,10 @@ class PoemsController < ApplicationController
       format.html { redirect_to poems_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def poem_params
+    params.require(:poem).permit(:johnson, :text, :title)
   end
 end
