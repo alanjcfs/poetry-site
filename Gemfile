@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
 
 gem 'rails', '3.2.13'
 
@@ -7,12 +7,19 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3'
+  gem 'thin', platform: :ruby
+  gem 'sqlite3', platform: :ruby
+  gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'pry-rails'
 end
 
+# platforms :jruby do
+#   gem 'jruby-openssl'
+# end
+
 group :production do
-  gem 'pg'
+  gem 'pg', platform: :ruby
+  gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
 end
 
 # Gems used only for assets and not required
@@ -43,7 +50,7 @@ gem 'bootstrap-sass'
 gem 'strong_parameters'
 gem 'rails_admin'
 gem 'cancan'
-# gem 'puma'
+gem 'puma'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -52,7 +59,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn'
+gem 'unicorn', platform: :ruby
 
 # Deploy with Capistrano
 # gem 'capistrano'
