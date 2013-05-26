@@ -10,7 +10,7 @@ gem 'rails', '3.2.13'
 group :development do
   gem 'thin', platform: :ruby
   gem 'sqlite3', platform: :ruby
-  gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
+  # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'pry-rails'
 end
 
@@ -20,7 +20,7 @@ end
 
 group :production do
   gem 'pg', platform: :ruby
-  gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
+  # gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
 end
 
 # Gems used only for assets and not required
@@ -51,7 +51,7 @@ gem 'bootstrap-sass'
 gem 'strong_parameters'
 gem 'rails_admin'
 gem 'cancan'
-gem 'puma'
+# gem 'puma'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
