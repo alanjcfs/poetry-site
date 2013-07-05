@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
 ruby '2.0.0'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -25,16 +25,14 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'compass-rails'
+gem 'sass-rails'
+gem 'coffee-rails'
+# gem 'compass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'uglifier', '>= 1.0.3'
 
 group :test do
   gem 'minitest-rails'
@@ -42,14 +40,14 @@ end
 
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'ransack'
+gem 'ransack', git: 'git://github.com/ernie/ransack.git', branch: 'rails-4'
 gem 'twitter'
 gem 'nokogiri'
 gem 'newrelic_rpm'
-gem 'haml-rails'
+gem 'slim-rails'
 gem 'bootstrap-sass'
-gem 'strong_parameters'
-gem 'rails_admin'
+# gem 'strong_parameters'
+gem 'rails_admin', '~> 0.5'
 gem 'cancan'
 # gem 'puma'
 
@@ -69,4 +67,4 @@ gem 'unicorn', platform: :ruby
 # gem 'debugger'
 
 
-gem "devise"
+gem "devise", git: 'git://github.com/plataformatec/devise.git', tag: 'v3.0.0.rc'
