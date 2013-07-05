@@ -39,7 +39,7 @@ group :test do
 end
 
 gem 'jquery-rails'
-gem 'kaminari'
+gem 'kaminari', git: 'git://github.com/amatsuda/kaminari.git'
 gem 'ransack', git: 'git://github.com/ernie/ransack.git', branch: 'rails-4'
 gem 'twitter'
 gem 'nokogiri'

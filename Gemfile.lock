@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: b84a4f99e77ac4dd79ba23494b59ab6f97268dc5
+  specs:
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+
+GIT
   remote: git://github.com/ernie/ransack.git
   revision: 566332e4dc64602d23fb2cf5a85b7612fbc024a8
   branch: rails-4
@@ -80,9 +88,6 @@ GEM
     jquery-ui-rails (4.0.3)
       jquery-rails
       railties (>= 3.1.0)
-    kaminari (0.14.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     kgio (2.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -211,7 +216,7 @@ DEPENDENCIES
   coffee-rails
   devise!
   jquery-rails
-  kaminari
+  kaminari!
   minitest-rails
   newrelic_rpm
   nokogiri
