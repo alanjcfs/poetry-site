@@ -1,12 +1,12 @@
-%p#notice
+p#notice
   = notice
 
-%p
-  %b Johnson #
+p
+  b Johnson #
   = @poem.johnson
 
-%p
-  %b Text
+p
+  b Text
   = @poem.text.html_safe
 
 = link_to 'Back', poems_path
