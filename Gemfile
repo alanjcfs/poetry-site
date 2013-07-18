@@ -49,6 +49,7 @@ gem 'newrelic_rpm'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 # gem 'strong_parameters'
+gem "devise", "~> 3.0"
 gem 'rails_admin', '~> 0.5'
 gem 'cancan'
 gem 'puma'
@@ -67,6 +68,3 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
-
-
-gem "devise", git: 'git://github.com/plataformatec/devise.git', tag: 'v3.0.0.rc'

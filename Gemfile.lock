@@ -16,17 +16,6 @@ GIT
       activerecord
       polyamorous (~> 0.6.0)
 
-GIT
-  remote: git://github.com/plataformatec/devise.git
-  revision: 540db3726dd7325518afe00aa14eb1522251ab1d
-  tag: v3.0.0.rc
-  specs:
-    devise (3.0.0.rc)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      warden (~> 1.2.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -70,6 +59,11 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     daemons (1.1.9)
+    devise (3.0.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
@@ -206,7 +200,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    warden (1.2.1)
+    warden (1.2.3)
       rack (>= 1.0)
 
 PLATFORMS
@@ -217,7 +211,7 @@ DEPENDENCIES
   bootstrap-sass
   cancan
   coffee-rails
-  devise!
+  devise (~> 3.0)
   jquery-rails
   kaminari!
   minitest-rails
