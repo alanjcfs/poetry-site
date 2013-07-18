@@ -51,7 +51,7 @@ gem 'bootstrap-sass'
 # gem 'strong_parameters'
 gem 'rails_admin', '~> 0.5'
 gem 'cancan'
-# gem 'puma'
+gem 'puma'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
@@ -60,7 +60,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn', platform: :ruby
+# gem 'unicorn', platform: :ruby
 
 # Deploy with Capistrano
 # gem 'capistrano'
