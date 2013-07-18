@@ -9,5 +9,5 @@ unless Rails.env.production?
   PoetrySite::Application.config.secret_key_base = '7b87fb5d674c47dd2c7a1ae309d94cbad319838dba7eab76f898707b21679833fd2fcad07756168aba23347a490d9e555f6ad7c30fc659c81ef1c5af19498e86'
 else
   PoetrySite::Application.config.secret_token = ENV['HONK_HONK']
-  PoetrySite::Application.config.secret_key_base = ENV['HONK_HONK']
+  PoetrySite::Application.config.secret_key_base = ENV['CHOO_CHOO']
 end
