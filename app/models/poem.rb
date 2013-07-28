@@ -1,5 +1,4 @@
 class Poem < ActiveRecord::Base
-  include ActiveModel::ForbiddenAttributesProtection
 
   validates :johnson, uniqueness: true
 
