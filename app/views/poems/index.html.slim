@@ -4,10 +4,11 @@
 .row
   .span12
     h2.search-query Search by text in poem
-    = search_form_for @q do |f|
+    = search_form_for @q, html: { class: 'form-horizontal search-query \
+      input-append' } do |f|
       = f.label :text_cont
-      = f.text_field :text_cont
-      = f.submit
+      => f.text_field :text_cont
+      = f.submit 'Search', class: 'btn btn-default'
 
 .row
   .span12#paginator
