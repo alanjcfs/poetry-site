@@ -8,7 +8,6 @@ gem 'rails', '4.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'thin', platform: :ruby
   gem 'sqlite3', platform: :ruby
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'pry-rails'
