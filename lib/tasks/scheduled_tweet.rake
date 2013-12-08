@@ -18,7 +18,7 @@ task tweet: :environment do
       tweeted_poem.count += 1 && tweeted_poem.save!
       poem = Poem.find(count)
     else
-      TweetedPoem.create!(poem_id: poem, count: 1)
+      TweetedPoem.create!(poem_id: poem.id, count: 1)
       break
     end
   end
