@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20131208082104) do
     t.datetime "updated_at"
   end
 
+  add_index "tweeted_poems", ["poem_id"], name: "index_tweeted_poems_on_poem_id"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false

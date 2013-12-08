@@ -6,5 +6,6 @@ class CreateTweetedPoems < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :tweeted_poems, :poem_id
   end
 end
