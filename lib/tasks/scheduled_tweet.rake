@@ -13,7 +13,7 @@ task tweet: :environment do
   poem = Poem.find(rand)
 
   loop do
-    tweeted_poem = TweetedPoem.find(poem.id)
+    tweeted_poem = TweetedPoem.where(id: poem).first
     if tweeted_poem
       tweeted_poem.count += 1 && tweeted_poem.save!
       poem = Poem.find(count)
