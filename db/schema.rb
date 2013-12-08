@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002231137) do
+ActiveRecord::Schema.define(version: 20131208082104) do
 
   create_table "poems", force: true do |t|
     t.integer  "johnson"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20131002231137) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
+
+  create_table "tweeted_poems", force: true do |t|
+    t.integer  "poem_id"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
