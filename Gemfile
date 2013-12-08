@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
+gem 'puma'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -51,7 +52,6 @@ gem 'bootstrap-sass'
 gem "devise", "~> 3.0"
 gem 'rails_admin', '~> 0.5'
 gem 'cancan'
-gem 'puma'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
