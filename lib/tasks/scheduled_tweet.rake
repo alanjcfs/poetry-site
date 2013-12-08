@@ -8,8 +8,20 @@ task tweet: :environment do
     config.oauth_token = ENV['OAUTH_TOKEN']
     config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
   end
-  rand = SecureRandom.random_number(Poem.count)
+  count = Poem.count
+  rand = SecureRandom.random_number(count)
   poem = Poem.find(rand)
+
+  loop do
+    tweeted_poem = TweetedPoem.find(poem.id)
+    if tweeted_poem
+      tweeted_poem.count += 1 && tweeted_poem.save!
+      poem = Poem.find(count)
+    else
+      TweetedPoem.create!(poem_id: poem, count: 1)
+      break
+    end
+  end
 
   noko = Nokogiri::HTML::Document.parse(poem.text.strip)
   text = noko.xpath('//p').inner_html

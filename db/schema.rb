@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20131208082104) do
 
   create_table "tweeted_poems", force: true do |t|
     t.integer  "poem_id"
-    t.integer  "count"
+    t.integer  "count",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
