@@ -50,7 +50,7 @@ gem 'slim-rails'
 gem 'bootstrap-sass'
 # gem 'strong_parameters'
 gem "devise", "~> 3.0"
-gem 'rails_admin', '~> 0.5'
+# gem 'rails_admin', '~> 0.5'
 gem 'cancan'
 
 # To use ActiveModel has_secure_password
