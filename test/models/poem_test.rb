@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class PoemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "following attributes should exist" do
+    poem = Poem.new
+    poem.must_respond_to :johnson
+  end
 end

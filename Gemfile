@@ -38,6 +38,7 @@ gem 'uglifier', '>= 1.0.3'
 
 group :test do
   gem 'minitest-rails'
+  gem 'guard-minitest'
 end
 
 gem 'jquery-rails'
@@ -51,7 +52,7 @@ gem 'bootstrap-sass'
 # gem 'strong_parameters'
 gem "devise", "~> 3.0"
 # gem 'rails_admin', '~> 0.5'
-gem 'cancan'
+# gem 'cancan'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

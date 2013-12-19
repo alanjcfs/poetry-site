@@ -2,8 +2,10 @@
 
 one:
   johnson: 1
+  title: My
   text: MyText
 
 two:
   johnson: 2
+  title: Another
   text: AnotherText

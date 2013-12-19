@@ -11,7 +11,7 @@ require "minitest/rails"
 # Uncomment if you want awesome colorful output
 # require "minitest/pride"
 
-class MiniTest::Rails::ActiveSupport::TestCase
+class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   fixtures :all
 
@@ -22,5 +22,3 @@ end
 # Comment out the following and either:
 # A) Change the require on the existing tests to `require "minitest_helper"`
 # B) Require this file's code in test_helper.rb
-
-# MiniTest::Rails.override_testunit!
