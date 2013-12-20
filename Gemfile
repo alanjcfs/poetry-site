@@ -43,7 +43,7 @@ end
 
 gem 'jquery-rails'
 gem 'kaminari', git: 'git://github.com/amatsuda/kaminari.git'
-gem 'ransack', git: 'git://github.com/ernie/ransack.git', branch: 'rails-4'
+gem 'ransack'
 gem 'twitter'
 gem 'nokogiri'
 gem 'newrelic_rpm'
