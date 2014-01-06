@@ -43,7 +43,7 @@ end
 
 gem 'jquery-rails'
 gem 'kaminari', git: 'git://github.com/amatsuda/kaminari.git'
-gem 'ransack', git: 'git://github.com/ernie/ransack.git', branch: 'rails-4'
+gem 'ransack'
 gem 'twitter'
 gem 'nokogiri'
 gem 'newrelic_rpm'
@@ -52,7 +52,7 @@ gem 'bootstrap-sass'
 # gem 'strong_parameters'
 gem "devise", "~> 3.0"
 # gem 'rails_admin', '~> 0.5'
-# gem 'cancan'
+gem 'pundit'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
