@@ -54,6 +54,10 @@ gem "devise", "~> 3.0"
 # gem 'rails_admin', '~> 0.5'
 gem 'pundit'
 
+# redis for using RedisToGo, redis-rails for cache store
+gem 'redis'
+gem 'redis-rails'
+
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
