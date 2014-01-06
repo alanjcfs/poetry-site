@@ -9,7 +9,6 @@ gem 'puma'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3', platform: :ruby
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'pry-rails'
 end
@@ -18,8 +17,9 @@ end
 #   gem 'jruby-openssl'
 # end
 
+gem 'pg', platform: :ruby
+
 group :production do
-  gem 'pg', platform: :ruby
   gem 'rails_12factor'
   # gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
 end
@@ -42,7 +42,7 @@ group :test do
 end
 
 gem 'jquery-rails'
-gem 'kaminari', git: 'git://github.com/amatsuda/kaminari.git'
+gem 'kaminari', '~> 0.15'
 gem 'ransack'
 gem 'twitter'
 gem 'nokogiri'
