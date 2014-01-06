@@ -240,5 +240,5 @@ DEPENDENCIES
   sass-rails
   slim-rails
   turbolinks
-  twitter
+  twitter (~> 5.0)
   uglifier (>= 1.0.3)

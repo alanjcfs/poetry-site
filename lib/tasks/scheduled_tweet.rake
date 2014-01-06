@@ -2,7 +2,7 @@ require 'securerandom'
 
 desc 'twitter tweet'
 task tweet: :environment do
-  Twitter.configure do |config|
+  client = Twitter::REST::Client.new do |config|
     config.consumer_key = ENV['CONSUMER_KEY']
     config.consumer_secret = ENV['CONSUMER_SECRET']
     config.oauth_token = ENV['OAUTH_TOKEN']
@@ -31,14 +31,14 @@ task tweet: :environment do
     array.each do |stanza|
       stanza = Nokogiri::HTML::Document.parse(stanza).text
       if stanza.size < 140
-        Twitter.update(stanza)
+        client.update(stanza)
         sleep 60;
       else
         split_stanza = stanza.split("\n")
         last_stanza = split_stanza.inject('') do |tweet, line|
           tweet_line = tweet + "\n" + line
           if tweet_line.size >= 130
-            Twitter.update(tweet)
+            client.update(tweet)
             sleep 60;
             line
           else
@@ -46,7 +46,7 @@ task tweet: :environment do
           end
         end
         unless last_stanza.empty?
-          Twitter.update(last_stanza)
+          client.update(last_stanza)
           sleep 60;
         end
       end
