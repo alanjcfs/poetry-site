@@ -6,7 +6,7 @@
 development: &default
   adapter: postgresql
   database: localhost
-  username: alan
+  username: <%= ENV['POSTGRES_USERNAME'] %>
   database: poetry-site
   pool: 5
   timeout: 5000
