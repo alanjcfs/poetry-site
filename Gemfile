@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
 ruby '2.1.1'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0'
 gem 'puma'
 
 # Bundle edge Rails instead:
@@ -38,7 +38,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do
-  gem 'minitest-spec-rails'
+  gem 'minitest-spec-rails', branch: 'master', github: 'metaskills/minitest-spec-rails'
   gem 'guard-minitest'
 end
 
