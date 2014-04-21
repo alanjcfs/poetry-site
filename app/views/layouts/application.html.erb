@@ -3,7 +3,7 @@
 <head>
   <title>PoetrySite</title>
   <%= stylesheet_link_tag    "application", :media => "all", :"data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application" %>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -32,5 +32,7 @@
 
 </script>
 
+  <%= javascript_include_tag "application" %>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>
