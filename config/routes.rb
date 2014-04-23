@@ -1,9 +1,9 @@
 PoetrySite::Application.routes.draw do
-
-
   devise_for :users
 
-  # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  namespace :admin do
+    resources :poems
+  end
 
   resources :poems, only: [:index, :show]
 
