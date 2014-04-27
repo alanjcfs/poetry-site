@@ -11,6 +11,7 @@ gem 'puma'
 group :development do
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'pry-rails'
+  gem 'spring'
 end
 
 # platforms :jruby do
