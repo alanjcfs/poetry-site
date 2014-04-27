@@ -2,7 +2,7 @@ PoetrySite::Application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    resources :poems
+    resources :poems, except: :destroy
   end
 
   resources :poems, only: [:index, :show]

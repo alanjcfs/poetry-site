@@ -50,14 +50,14 @@ gem 'twitter', '~> 5.0'
 gem 'nokogiri'
 gem 'newrelic_rpm'
 gem 'slim-rails'
-# gem 'strong_parameters'
 gem "devise", "~> 3.0"
-# gem 'rails_admin', '~> 0.5'
 gem 'pundit'
 
 # redis for using RedisToGo, redis-rails for cache store
 gem 'redis'
 gem 'redis-rails'
+
+gem 'simple_form'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
