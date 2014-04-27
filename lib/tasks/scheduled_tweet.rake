@@ -3,17 +3,17 @@ require 'securerandom'
 desc 'twitter tweet'
 task tweet: :environment do
   client = Twitter::REST::Client.new do |config|
-    config.consumer_key = ENV['CONSUMER_KEY']
-    config.consumer_secret = ENV['CONSUMER_SECRET']
-    config.oauth_token = ENV['OAUTH_TOKEN']
+    config.consumer_key       = ENV['CONSUMER_KEY']
+    config.consumer_secret    = ENV['CONSUMER_SECRET']
+    config.oauth_token        = ENV['OAUTH_TOKEN']
     config.oauth_token_secret = ENV['OAUTH_TOKEN_SECRET']
   end
   count = Poem.count
-  rand = SecureRandom.random_number(count)
-  poem = Poem.find(rand)
+  rand  = SecureRandom.random_number(count)
+  poem  = Poem.find(rand)
 
   loop do
-    tweeted_poem = TweetedPoem.where(id: poem).first
+    tweeted_poem = TweetedPoem.where(id: poem.id).first
     if tweeted_poem
       tweeted_poem.count += 1 && tweeted_poem.save!
       poem = Poem.find(count)

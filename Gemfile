@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
-ruby '2.0.0'
+ruby '2.1.1'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0'
 gem 'puma'
 
 # Bundle edge Rails instead:
@@ -11,6 +11,7 @@ gem 'puma'
 group :development do
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'pry-rails'
+  gem 'spring'
 end
 
 # platforms :jruby do
@@ -27,6 +28,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'sass-rails'
+# gem 'bootstrap-sass'
 gem 'coffee-rails'
 gem 'turbolinks'
 # gem 'compass-rails'
@@ -37,7 +39,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do
-  gem 'minitest-rails'
+  gem 'minitest-spec-rails', branch: 'master', github: 'metaskills/minitest-spec-rails'
   gem 'guard-minitest'
 end
 
@@ -48,18 +50,14 @@ gem 'twitter', '~> 5.0'
 gem 'nokogiri'
 gem 'newrelic_rpm'
 gem 'slim-rails'
-gem 'bootstrap-sass'
-# gem 'strong_parameters'
 gem "devise", "~> 3.0"
-# gem 'rails_admin', '~> 0.5'
 gem 'pundit'
 
 # redis for using RedisToGo, redis-rails for cache store
 gem 'redis'
 gem 'redis-rails'
 
-# To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'simple_form'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

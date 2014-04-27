@@ -1,0 +1,13 @@
+h1 Edit Poem
+
+= simple_form_for @poem, url: admin_poem_path(@poem) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :text
+    = f.input :johnson
+    = f.input :franklin
+
+  .form-actions
+    = f.button :submit
