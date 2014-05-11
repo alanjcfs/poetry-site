@@ -57,6 +57,8 @@ gem 'pundit'
 gem 'redis'
 gem 'redis-rails'
 
+gem 'skylight'
+
 gem 'simple_form'
 
 # To use Jbuilder templates for JSON
