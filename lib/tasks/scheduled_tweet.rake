@@ -16,7 +16,11 @@ task tweet: :environment do
     tweeted_poem = TweetedPoem.where(id: poem.id).first
     if tweeted_poem
       (tweeted_poem.count += 1) && tweeted_poem.save!
-      poem = Poem.find(SecureRandom.random_number(count))
+      if tweeted_poem.count > 1
+        poem = Poem.find(SecureRandom.random_number(count))
+      else
+        break
+      end
     else
       TweetedPoem.create!(poem_id: poem.id, count: 1)
       break
