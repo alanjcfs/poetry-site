@@ -9,24 +9,16 @@ task tweet: :environment do
     config.access_token        = ENV['OAUTH_TOKEN']
     config.access_token_secret = ENV['OAUTH_TOKEN_SECRET']
   end
-  count = Poem.count
-  rand  = SecureRandom.random_number(count)
-  poem  = Poem.find(rand)
 
-  loop do
-    tweeted_poem = TweetedPoem.where(id: poem.id).first
-    if tweeted_poem
-      (tweeted_poem.count += 1) && tweeted_poem.save!
-      if tweeted_poem.count > 1
-        poem = Poem.find(SecureRandom.random_number(count))
-      else
-        break
-      end
-    else
-      TweetedPoem.create!(poem_id: poem.id, count: 1)
-      break
-    end
+  tweeted_poems = TweetedPoem.where("count >= 1")
+  poem  = Poem.where("id NOT IN (:tweeted_poems)",
+                     tweeted_poems: tweeted_poems.pluck(:poem_id)).order("RANDOM()").first
+
+  tweeted_poem = TweetedPoem.where(poem_id: poem.id).first_or_initialize(poem_id: poem.id, count: 1)
+  if !tweeted_poem.new_record?
+    tweeted_poem.count += 1
   end
+  tweeted_poem.save!
 
   noko = Nokogiri::HTML::Document.parse(poem.text.strip)
   text = noko.xpath('//p').inner_html
