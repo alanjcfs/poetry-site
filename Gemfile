@@ -28,7 +28,6 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'sass-rails'
-# gem 'bootstrap-sass'
 gem 'coffee-rails'
 gem 'turbolinks'
 # gem 'compass-rails'
