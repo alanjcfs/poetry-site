@@ -1,3 +1,4 @@
-tr
-  td#johnson = poem.johnson
-  td = link_to poem, poem
+- cache(poem) do
+  tr
+    td#johnson = poem.johnson
+    td = link_to poem, poem

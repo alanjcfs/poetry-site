@@ -5,7 +5,9 @@ PoetrySite::Application.routes.draw do
     resources :poems, except: :destroy
   end
 
-  resources :poems, only: [:index, :show]
+  resources :poems, only: [:index, :show] do
+    get 'random', on: :collection
+  end
 
   root to: 'poems#index'
 

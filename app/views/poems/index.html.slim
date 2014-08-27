@@ -4,7 +4,7 @@
 .row
   .span12
     h2.search-query Search by text in poem
-    = search_form_for @q, html: { class: 'form-horizontal search-query \
+    = search_form_for q, html: { class: 'form-horizontal search-query \
       input-append' } do |f|
       = f.label :text_cont
       => f.text_field :text_cont
@@ -26,6 +26,7 @@
           th Johnson
           th Title
       tbody#poems-list
-        = render @poems
+        - cache cache_key_for_poems do
+          = render @poems
 
 p Taken from Wikisource

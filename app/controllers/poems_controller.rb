@@ -1,15 +1,24 @@
 class PoemsController < ApplicationController
+  helper_method :q, :cache_key_for_poems
   # GET /poems
   # GET /poems.json
   def index
     # @poems = Poem.order('johnson ASC').page params[:page]
 
-    @q = Poem.search(params[:q])
-    @poems = @q.result(:distinct => true).order('johnson ASC').page params[:page]
+    @poems = q.result(:distinct => true).order('johnson ASC').page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
       format.js
+      format.json { render json: @poems }
+    end
+  end
+
+  # TODO: Fix/cache the results so the pagination isn't randomized.
+  def random
+    @poems = Poem.order('RANDOM()').page params[:page]
+    respond_to do |format|
+      format.html { render "index" }
       format.json { render json: @poems }
     end
   end
@@ -83,6 +92,15 @@ class PoemsController < ApplicationController
       format.html { redirect_to poems_url }
       format.json { head :no_content }
     end
+  end
+
+  protected
+  def q
+    @q ||= Poem.search params[:q]
+  end
+
+  def cache_key_for_poems
+    "poems/#{Date.today.to_s}"
   end
 
   private
