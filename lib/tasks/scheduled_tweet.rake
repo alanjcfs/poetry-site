@@ -1,4 +1,5 @@
 require 'securerandom'
+require 'nokogiri'
 
 desc 'twitter tweet'
 task tweet: :environment do
