@@ -100,7 +100,7 @@ class PoemsController < ApplicationController
   end
 
   def cache_key_for_poems
-    "poems/#{Date.today.to_s}-#{params[:action]}-#{params[:page]}"
+    "poems/#{Date.today.to_s}-#{params[:action]}-#{params[:page]}-q#{params[:q]}"
   end
 
   private
