@@ -4,4 +4,4 @@
 #
 # Run Puma
 #
-web: bundle exec puma -p ${PORT:-3000} -e ${RACK_ENV:-development} -w 2 -t 1:16
+web: bundle exec puma -p ${PORT:-3000} -e ${RACK_ENV:-development} -w ${PUMA_WORKERS:-3} -t ${PUMA_MIN_THREADS:-1}:${PUMA_MAX_THREADS:-16}
