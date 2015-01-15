@@ -8,6 +8,7 @@ one:
   email: alan@atomsign.net
 # column: value
 #
-two:
+admin:
   email: alan+2@atomsign.net
+  admin: true
 #  column: value

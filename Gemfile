@@ -27,7 +27,7 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails'
 gem 'coffee-rails'
 gem 'turbolinks'
 # gem 'compass-rails'
@@ -38,7 +38,7 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do
-  gem 'minitest-spec-rails', branch: 'master', github: 'metaskills/minitest-spec-rails'
+  gem 'minitest-spec-rails', '~> 5.1'
   gem 'guard-minitest'
 end
 
