@@ -21,7 +21,7 @@ end
 gem 'pg', platform: :ruby
 
 group :production do
-  # gem 'rails_12factor'
+  gem 'rails_12factor'
   # gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
 end
 
