@@ -26,7 +26,7 @@
           th Johnson
           th Title
       tbody#poems-list
-        - cache cache_key_for_poems, expires_in: 1.day do
+        - cache cache_key_for_poems, expires_in: 1.hour do
           = render @poems
 
 p Taken from Wikisource
