@@ -60,6 +60,8 @@ gem 'skylight'
 
 gem 'simple_form'
 
+gem 'ckeditor'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
