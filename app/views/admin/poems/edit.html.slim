@@ -5,7 +5,7 @@ h1 Edit Poem
 
   .form-inputs
     = f.input :title
-    = f.input :text
+    = f.input :text, as: :ckeditor, input_html: { ckeditor: { toolbar: "mini" }}
     = f.input :johnson
     = f.input :franklin
 

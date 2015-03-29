@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require turbolinks
+//= require ckeditor/init
+//= require_tree .
 
 Turbolinks.enableProgressBar();
