@@ -8,22 +8,32 @@ html
     script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
     = csrf_meta_tags
   body
-    #container.container
-      - flash.each do |name, msg|
-        - if String === msg
-          = content_tag :div, msg, class: "flash_#{name}"
-      = yield
+    main#container.container
+      .row
+        .col-sm-offset-1.col-sm-10
+        - flash.each do |name, msg|
+          - if String === msg
+            = content_tag :div, msg, class: "flash_#{name}"
+      .row
+        .col-sm-offset-1.col-sm-10
+          = yield
 
-    div = debug params if Rails.env.development?
+    footer.container
+      .row
+        .col-sm-offset-1.col-sm-10
+          = debug params if Rails.env.development?
 
-    javascript:
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-2331179-5']);
-      _gaq.push(['_setDomainName', 'atomsign.net']);
-      _gaq.push(['_trackPageview']);
+    - if Rails.env.production?
+      |
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <!-- Dickinson --> <ins class="adsbygoogle"      style="display:block"      data-ad-client="ca-pub-8946397991010135"      data-ad-slot="9886313640"      data-ad-format="auto"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>
+      javascript:
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2331179-5']);
+        _gaq.push(['_setDomainName', 'atomsign.net']);
+        _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();

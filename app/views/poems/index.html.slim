@@ -1,32 +1,27 @@
-.row.span12
-  h1 Listing poems
+h1 Listing poems
 
-.row
-  .span12
-    h2.search-query Search by text in poem
-    = search_form_for q, html: { class: 'form-horizontal search-query input-append navbar-form navbar-left' } do |f|
-      .form-group
-        = f.label :text_cont, class: "sr-only"
-        => f.text_field :text_cont, placeholder: "Text contains", class: "form-control"
-        = f.submit 'Search', class: 'btn btn-default'
+h2.search-query Search by text in poem
+= search_form_for q, html: { class: 'search-query' } do |f|
+  .form-group
+    = f.label :text_cont, class: "sr-only"
+    => f.text_field :text_cont, placeholder: "Text contains", class: "form-control"
 
-.row
-  .span12#paginator
-    = paginate @poems
+  = f.submit 'Search', class: 'btn btn-primary'
 
-.row
-  .span16
-    table.table.table-condensed.table-hover
-      caption List of Poems
-      thead
-        tr
-          th Johnson
-          th Title
-      tfoot
-        tr
-          th(colspan=2) List of Poems
-      tbody#poems-list
-        - cache cache_key_for_poems, expires_in: 1.hour do
-          = render @poems
+#paginator
+  = paginate @poems
+
+table.table.table-condensed.table-hover
+  caption List of Poems
+  thead
+    tr
+      th Johnson
+      th Title
+  tfoot
+    tr
+      th(colspan=2) List of Poems
+  tbody#poems-list
+    - cache cache_key_for_poems, expires_in: 1.hour do
+      = render @poems
 
 p Taken from Wikisource
