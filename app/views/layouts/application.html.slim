@@ -10,17 +10,17 @@ html
   body
     main#container.container-fluid
       .row
-        .col-sm-offset-1.col-sm-10
+        .col-lg-offset-1.col-lg-10
         - flash.each do |name, msg|
           - if String === msg
             = content_tag :div, msg, class: "flash_#{name}"
       .row
-        .col-sm-offset-1.col-sm-10
+        .col-lg-offset-1.col-lg-10
           = yield
 
     footer.container
       .row
-        .col-sm-offset-1.col-sm-10
+        .col-lg-offset-1.col-lg-10
           = debug params if Rails.env.development?
 
     - if Rails.env.production?
