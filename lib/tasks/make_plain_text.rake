@@ -4,7 +4,7 @@ namespace :poems do
     Poem.find_each do |poem|
       noko = Nokogiri::HTML::Document.parse(poem.text.strip)
       text = noko.xpath('//p').inner_html
-      plain_text = text.gsub("<br>", "\n").gsub("\r\n", "")
+      plain_text = text.gsub("\r\n", "").gsub("\n", "").gsub("<br>", "\n")
       poem.update_attributes(plain_text: plain_text)
     end
   end
