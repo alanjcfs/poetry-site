@@ -3,18 +3,19 @@ require 'nokogiri'
 
 desc 'twitter tweet'
 task tweet: :environment do
-  client = Twitter::REST::Client.new do |config|
-    config.consumer_key        = ENV['CONSUMER_KEY']
-    config.consumer_secret     = ENV['CONSUMER_SECRET']
-    config.access_token        = ENV['OAUTH_TOKEN']
-    config.access_token_secret = ENV['OAUTH_TOKEN_SECRET']
+  def client
+    Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV['CONSUMER_KEY']
+      config.consumer_secret     = ENV['CONSUMER_SECRET']
+      config.access_token        = ENV['OAUTH_TOKEN']
+      config.access_token_secret = ENV['OAUTH_TOKEN_SECRET']
+    end
   end
 
   tweeted_poems = TweetedPoem.where("count >= 1")
-  poem  = Poem.where("id NOT IN (:tweeted_poems)",
-                     tweeted_poems: tweeted_poems.pluck(:poem_id)).order("RANDOM()").first
+  poem  = Poem.where.not(id: tweeted_poems.pluck(:poem_id)).order("RANDOM()").first
 
-  tweeted_poem = TweetedPoem.where(poem_id: poem.id).first_or_initialize(poem_id: poem.id, count: 1)
+  tweeted_poem = TweetedPoem.where(poem_id: poem.id).first_or_initialize(count: 1)
   if !tweeted_poem.new_record?
     tweeted_poem.count += 1
   end
