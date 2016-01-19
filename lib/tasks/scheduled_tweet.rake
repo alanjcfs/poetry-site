@@ -54,8 +54,9 @@ task tweet: :environment do
 
   begin
     if Time.now.hour % 4 == 0
-      client.update(current_stanza)
-      puts "Tweeted: #{current_stanza}"
+      @_current = current_stanza
+      client.update(@_current)
+      puts @_current
     end
   rescue => e
     Rails.logger.error e
