@@ -41,7 +41,7 @@ task tweet: :environment do
         if tweet_line.size >= 130
           joined_stanzas << tweet_line
           tweet_line = ""
-        elsif length == idx - 1
+        elsif idx == length - 1
           joined_stanzas << tweet_line
           tweet_line = ''
         end
@@ -56,9 +56,11 @@ task tweet: :environment do
   end
 
   begin
-    @_current = current_stanza
-    client.update(@_current)
-    puts @_current
+    if Time.now.hour % 4 == 0
+      @_current = current_stanza
+      client.update(@_current)
+      puts @_current
+    end
   rescue => e
     Rails.logger.error e
   end
