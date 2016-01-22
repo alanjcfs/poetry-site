@@ -60,11 +60,11 @@ task tweet: :environment do
   end
 
   begin
-    # if Time.now.hour % 4 == 0
+    if Time.now.hour % 4 == 0
       @_current = current_stanza
       client.update(@_current)
       puts @_current
-    # end
+    end
   rescue => e
     Rails.logger.error e
   end
