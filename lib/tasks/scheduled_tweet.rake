@@ -37,13 +37,17 @@ task tweet: :environment do
       tweet_line = ""
       length = split_stanza.length
       split_stanza.each.with_index do |line, idx|
-        tweet_line += line + "\n"
-        if tweet_line.size >= 130
+        original_line = tweet_line
+
+        tweet_line += "#{line}\n"
+        if tweet_line.size > 140
+          joined_stanzas << original_line
+          tweet_line = line
+          next
+        end
+        if tweet_line.size >= 130 || idx == length - 1
           joined_stanzas << tweet_line
           tweet_line = ""
-        elsif idx == length - 1
-          joined_stanzas << tweet_line
-          tweet_line = ''
         end
       end
       @current_stanza = joined_stanzas.shift
@@ -56,11 +60,11 @@ task tweet: :environment do
   end
 
   begin
-    if Time.now.hour % 4 == 0
+    # if Time.now.hour % 4 == 0
       @_current = current_stanza
       client.update(@_current)
       puts @_current
-    end
+    # end
   rescue => e
     Rails.logger.error e
   end
