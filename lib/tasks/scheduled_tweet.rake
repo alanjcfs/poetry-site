@@ -42,7 +42,7 @@ task tweet: :environment do
         tweet_line += "#{line}\n"
         if tweet_line.size > 140
           joined_stanzas << original_line
-          tweet_line = line
+          tweet_line = "#{line}\n"
           next
         end
         if tweet_line.size >= 130 || idx == length - 1
