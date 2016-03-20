@@ -12,56 +12,46 @@ task tweet: :environment do
     end
   end
 
+  def get_next_poem
+    tweeted_poems = TweetedPoem.where("count >= 1")
+    poem = Poem.where.not(id: tweeted_poems.pluck(:poem_id)).order("RANDOM()").first
+    tweeted_poem = TweetedPoem.where(poem_id: poem.id).first_or_initialize(count: 1)
+
+    tweeted_poem.count += 1 if !tweeted_poem.new_record?
+
+    tweeted_poem.save!
+
+    poem.plain_text.split("\n\n")
+  end
+
   def current_stanza
-    @current_poem = Rails.cache.fetch('current-poem') { [] }
+    current_poem = Rails.cache.fetch('current-poem') { [] }
 
-    if @current_poem.empty?
-      tweeted_poems = TweetedPoem.where("count >= 1")
-      poem = Poem.where.not(id: tweeted_poems.pluck(:poem_id)).order("RANDOM()").first
-      tweeted_poem = TweetedPoem.where(poem_id: poem.id).first_or_initialize(count: 1)
+    current_poem = get_next_poem if current_poem.empty?
 
-      if !tweeted_poem.new_record?
-        tweeted_poem.count += 1
-      end
+    current_stanza = current_poem.shift
 
-      tweeted_poem.save!
+    # Modifies current_stanza when it is bigger than 140 characters
+    if current_stanza.size > 140
+      splitsize = (current_stanza.length / 130.0).ceil
+      split_stanza = current_stanza.split("\n")
+      split_grouped = split_stanza
+        .in_groups_of(split_stanza.size / splitsize)
+        .map { |g| g.compact.join("\n") }
 
-      @current_poem = poem.plain_text.split("\n\n")
+      current_poem.unshift(*split_grouped)
+
+      current_stanza = current_poem.shift
     end
 
-    @current_stanza = @current_poem.shift
+    Rails.cache.write('current-poem', current_poem)
 
-    if @current_stanza.size > 140
-      split_stanza = @current_stanza.split("\n")
-      joined_stanzas = []
-      tweet_line = ""
-      length = split_stanza.length
-      split_stanza.each.with_index do |line, idx|
-        original_line = tweet_line
-
-        tweet_line += "#{line}\n"
-        if tweet_line.size > 140
-          joined_stanzas << original_line
-          tweet_line = "#{line}\n"
-          next
-        end
-        if tweet_line.size >= 130 || idx == length - 1
-          joined_stanzas << tweet_line
-          tweet_line = ""
-        end
-      end
-      @current_stanza = joined_stanzas.shift
-      @current_poem.unshift(*joined_stanzas)
-    end
-
-    Rails.cache.write('current-poem', @current_poem)
-
-    return @current_stanza
+    current_stanza
   end
 
   begin
     if Time.now.hour % 4 == 0
-      @_current = current_stanza
+      @_current = current_stanza # Done because calling current_stanza modifies it.
       client.update(@_current)
       puts @_current
     end
