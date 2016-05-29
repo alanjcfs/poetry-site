@@ -25,4 +25,9 @@ class Admin::PoemsController < Admin::ApplicationController
 
     respond_with @poem, location: admin_poem_url(@poem)
   end
+
+  protected
+  def poem_params
+    params.require(:poem).permit(:title, :text, :plain_text, :johnson, :franklin)
+  end
 end
