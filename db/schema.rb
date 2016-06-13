@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20160116193708) do
   create_table "tweeted_poems", force: :cascade do |t|
     t.integer  "poem_id"
     t.integer  "count",      default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "tweeted_poems", ["poem_id"], name: "index_tweeted_poems_on_poem_id", using: :btree
