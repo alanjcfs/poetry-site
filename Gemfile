@@ -42,6 +42,10 @@ group :test do
   gem 'guard-minitest'
 end
 
+group :development, :test do
+  gem 'dotenv-rails'
+end
+
 gem 'jquery-rails'
 gem 'kaminari', '~> 0.15'
 gem 'ransack'

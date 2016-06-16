@@ -4,7 +4,7 @@ class CreatePoems < ActiveRecord::Migration
       t.integer :johnson
       t.text :text
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end
