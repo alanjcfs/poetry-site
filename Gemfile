@@ -39,7 +39,7 @@ gem 'uglifier', '>= 1.0.3'
 
 group :test do
   gem 'minitest-spec-rails', '~> 5.1'
-  gem 'guard-minitest'
+  gem 'minitest-autotest'
 end
 
 group :development, :test do
