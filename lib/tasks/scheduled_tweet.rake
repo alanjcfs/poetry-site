@@ -14,7 +14,7 @@ task tweet: :environment do
 
   def get_next_poem
     tweeted_poems = TweetedPoem.where("count >= 1")
-    poem = Poem.where.not(id: tweeted_poems.pluck(:poem_id)).order("RANDOM()").first
+    poem = Poem.where.not(id: tweeted_poems.select(:poem_id)).order("RANDOM()").first
     tweeted_poem = TweetedPoem.where(poem_id: poem.id).first_or_initialize(count: 1)
 
     tweeted_poem.count += 1 if !tweeted_poem.new_record?
@@ -50,7 +50,7 @@ task tweet: :environment do
   end
 
   begin
-    if Time.now.hour % 4 == 0
+    if Time.now.hour % 5 == 0
       @_current = current_stanza # Done because calling current_stanza modifies it.
       client.update(@_current)
       puts @_current
