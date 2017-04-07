@@ -1,0 +1,5 @@
+Poetry Site
+===========
+
+This repo serves the poems of Emily Dickinson. There are over 2,700 poems. The exact count is uncertain due to
+numerous variants on several poems.
