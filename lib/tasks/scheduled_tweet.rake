@@ -13,9 +13,9 @@ task tweet: :environment do
   end
 
   def get_next_poem
-    tweeted_poems = TweetedPoem.where("count >= 1")
-    poem = Poem.where.not(id: tweeted_poems.select(:poem_id)).order("RANDOM()").first
-    tweeted_poem = TweetedPoem.where(poem_id: poem.id).first_or_initialize(count: 1)
+    tweeted_poems = TweetedPoem.where("count >= 3")
+    poem = Poem.where.not(id: tweeted_poems).order("RANDOM()").first
+    tweeted_poem = TweetedPoem.where(poem_id: poem.id).first
 
     tweeted_poem.count += 1 if !tweeted_poem.new_record?
 
