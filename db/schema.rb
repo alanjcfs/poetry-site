@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116193708) do
+ActiveRecord::Schema.define(version: 20170911200418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "caches", force: :cascade do |t|
+    t.text     "key",        null: false
+    t.jsonb    "data"
+    t.jsonb    "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "caches", ["key"], name: "index_caches_on_key", unique: true, using: :btree
 
   create_table "poems", force: :cascade do |t|
     t.integer  "johnson"
