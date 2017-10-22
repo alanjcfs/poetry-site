@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
 ruby '2.3.4'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '5.0'
 gem 'puma'
 
 # Bundle edge Rails instead:
@@ -52,7 +52,7 @@ gem 'ransack'
 gem 'twitter', '~> 5.0'
 gem 'nokogiri', require: false
 gem 'slim-rails'
-gem "devise", "~> 3.0"
+gem "devise", "~> 4.0"
 gem 'pundit'
 
 # redis for using RedisToGo, redis-rails for cache store

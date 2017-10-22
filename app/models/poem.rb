@@ -1,4 +1,4 @@
-class Poem < ActiveRecord::Base
+class Poem < ApplicationRecord
   has_many :tweeted_poems
 
   validates :johnson, uniqueness: true
