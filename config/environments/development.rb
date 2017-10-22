@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'postgres_cache_store')
+
 PoetrySite::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
