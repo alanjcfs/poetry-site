@@ -23,5 +23,5 @@ end
 # B) Require this file's code in test_helper.rb
 
 class ActionController::TestCase
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
 end

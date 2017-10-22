@@ -10,7 +10,6 @@ gem 'puma'
 
 group :development do
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
-  gem 'pry-rails'
   gem 'spring'
   gem 'listen'
 end
@@ -39,12 +38,13 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do
-  gem 'minitest-spec-rails', '~> 5.1'
+  gem 'minitest-spec-rails'
   gem 'minitest-autotest'
 end
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'pry-rails'
 end
 
 gem 'jquery-rails'

@@ -4,7 +4,6 @@ class PoemsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:poems)
   end
 
   # test "should get new" do
@@ -22,7 +21,7 @@ class PoemsControllerTest < ActionController::TestCase
 
   test "should show poem" do
     @poem = poems(:one)
-    get :show, id: @poem.id
+    get :show, params: { id: @poem.id }
     assert_response :success
   end
 

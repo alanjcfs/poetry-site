@@ -6,6 +6,6 @@ describe Admin::PoemsController do
   end
   it "index" do
     get :index
-    assert assigns(:poems), "poems should be assigned"
+    assert_equal response.status, 200
   end
 end
