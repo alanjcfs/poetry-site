@@ -12,6 +12,7 @@ group :development do
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'pry-rails'
   gem 'spring'
+  gem 'listen'
 end
 
 # platforms :jruby do

@@ -99,6 +99,10 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -198,6 +202,7 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    ruby_dep (1.5.0)
     sass (3.5.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -213,7 +218,7 @@ GEM
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
     simple_oauth (0.3.1)
-    skylight (0.10.4)
+    skylight (1.4.3)
       activesupport (>= 3.0.0)
     slim (3.0.8)
       temple (>= 0.7.6, < 0.9)
@@ -273,6 +278,7 @@ DEPENDENCIES
   dotenv-rails
   jquery-rails
   kaminari (~> 0.15)
+  listen
   minitest-autotest
   minitest-spec-rails (~> 5.1)
   nokogiri
