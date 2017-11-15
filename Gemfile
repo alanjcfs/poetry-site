@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
-ruby '2.3.3'
+ruby '2.3.5'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '5.1.4'
 gem 'puma'
 
 # Bundle edge Rails instead:
@@ -10,8 +10,8 @@ gem 'puma'
 
 group :development do
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
-  gem 'pry-rails'
   gem 'spring'
+  gem 'listen'
 end
 
 # platforms :jruby do
@@ -38,12 +38,13 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
 
 group :test do
-  gem 'minitest-spec-rails', '~> 5.1'
+  gem 'minitest-spec-rails'
   gem 'minitest-autotest'
 end
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'pry-rails'
 end
 
 gem 'jquery-rails'
@@ -52,7 +53,7 @@ gem 'ransack'
 gem 'twitter', '~> 5.0'
 gem 'nokogiri', require: false
 gem 'slim-rails'
-gem "devise", "~> 3.0"
+gem "devise", "~> 4.0"
 gem 'pundit'
 
 # redis for using RedisToGo, redis-rails for cache store
