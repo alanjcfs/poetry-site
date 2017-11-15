@@ -30,6 +30,7 @@ end
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'turbolinks'
+gem 'webpacker'
 # gem 'compass-rails'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
