@@ -1,4 +1,4 @@
-= simple_form_for @poem, url: admin_poem_path(@poem) do |f|
+= simple_form_for [:admin, @poem] do |f|
   = f.error_notification
 
   .form-inputs
