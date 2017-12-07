@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170911200418) do
+ActiveRecord::Schema.define(version: 20171207080527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20170911200418) do
     t.string "title"
     t.integer "franklin"
     t.text "plain_text"
-    t.index ["franklin"], name: "index_poems_on_franklin", unique: true
-    t.index ["johnson"], name: "index_poems_on_johnson", unique: true
+    t.index ["franklin"], name: "index_poems_on_franklin", where: "(franklin IS NOT NULL)"
+    t.index ["johnson"], name: "index_poems_on_johnson", where: "(johnson IS NOT NULL)"
   end
 
   create_table "rails_admin_histories", id: :serial, force: :cascade do |t|
