@@ -17,7 +17,7 @@ development: &default
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: poetry_site_test
+  database: poetry-site-test
 
 production:
   <<: *default
