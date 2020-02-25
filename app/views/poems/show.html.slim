@@ -12,6 +12,6 @@ p#notice
 .h3
   b Plain Text
   pre
-    = @poem.plain_text.html_safe
+    = @poem.plain_text&.html_safe
 
 = link_to 'Back', poems_path
