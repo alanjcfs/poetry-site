@@ -48,7 +48,7 @@ group :development, :test do
 end
 
 gem 'jquery-rails'
-gem 'kaminari', '~> 0.15'
+gem 'kaminari', '~> 1.2'
 gem 'ransack'
 gem 'twitter', '~> 5.0'
 gem 'nokogiri', require: false
