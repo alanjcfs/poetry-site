@@ -21,7 +21,6 @@ table.table.table-condensed.table-hover
     tr
       th(colspan=2) List of Poems
   tbody#poems-list
-    - cache cache_key_for_poems, expires_in: 1.hour do
-      = render @poems
+    = render @poems
 
 p Taken from Wikisource
