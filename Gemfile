@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
-ruby '2.7.0'
+ruby '2.7.6'
 
 gem 'rails', '5.2.4.3'
 gem 'puma'
@@ -11,7 +11,6 @@ gem 'puma'
 group :development do
   # gem 'activerecord-jdbcsqlite3-adapter', platform: :jruby
   gem 'spring'
-  gem 'listen'
 end
 
 # platforms :jruby do
@@ -59,8 +58,6 @@ gem 'pundit'
 # redis for using RedisToGo, redis-rails for cache store
 gem 'redis'
 gem 'redis-rails'
-
-gem 'skylight'
 
 gem 'simple_form'
 
