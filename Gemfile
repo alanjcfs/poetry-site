@@ -56,9 +56,7 @@ gem 'slim-rails'
 gem "devise", "~> 4.7"
 gem 'pundit'
 
-# redis for using RedisToGo, redis-rails for cache store
-gem 'redis'
-gem 'redis-rails'
+gem 'dalli'
 
 gem 'simple_form'
 
