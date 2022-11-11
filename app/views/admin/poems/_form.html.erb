@@ -1,0 +1,13 @@
+<% _slim_controls1 = simple_form_for [:admin, @poem] do |f|
+ %><%= ::Temple::Utils.escape_html((f.error_notification)) %>
+
+<div class="form-inputs">
+<%= ::Temple::Utils.escape_html((f.input :title)) %>
+<%= ::Temple::Utils.escape_html((f.input :text, class: 'ckeditor')) %>
+<%= ::Temple::Utils.escape_html((f.input :plain_text)) %>
+<%= ::Temple::Utils.escape_html((f.input :johnson)) %>
+<%= ::Temple::Utils.escape_html((f.input :franklin)) %>
+
+</div><div class="form-actions">
+<%= ::Temple::Utils.escape_html((f.button :submit)) %>
+</div><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %>

@@ -1,0 +1,5 @@
+<%= ::Temple::Utils.escape_html((link_to "Sign Out", destroy_user_session_path, method: :delete)) %>
+
+<h1>Poems
+</h1>
+<%= ::Temple::Utils.escape_html((render @poems)) %>
