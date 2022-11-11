@@ -1,5 +1,5 @@
 <% cache(poem, expires_in: 1.day) do
  %><tr>
-<td class="johnson"><%= ::Temple::Utils.escape_html((poem.johnson)) %>
-</td><td><%= ::Temple::Utils.escape_html((link_to poem, poem)) %>
+<td class="johnson"><%= poem.johnson %>
+</td><td><%= link_to poem, poem %>
 </td></tr><% end %>

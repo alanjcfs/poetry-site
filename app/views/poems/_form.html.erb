@@ -4,22 +4,22 @@ if @poem.errors.any?
 <h2><% _slim_controls2 = pluralize(@poem.errors.count, "error") do
  %>prohibited this poem from being saved:
 
-<% end %><%= ::Temple::Utils.escape_html((_slim_controls2)) %></h2><ul>
+<% end %><%= _slim_controls2 %></h2><ul>
 <% @poem.errors.full_messages.each do |msg|
- %><li><%= ::Temple::Utils.escape_html((msg)) %>
+ %><li><%= msg %>
 
 </li><% end %></ul></div><% end %><div class="field">
-<%= ::Temple::Utils.escape_html((f.label :johnson)) %>
+<%= f.label :johnson %>
 <br />
-<%= ::Temple::Utils.escape_html((f.number_field :johnson)) %>
+<%= f.number_field :johnson %>
 </div><div class="field">
-<%= ::Temple::Utils.escape_html((f.label :title)) %>
+<%= f.label :title %>
 <br />
-<%= ::Temple::Utils.escape_html((f.text_field :title)) %>
+<%= f.text_field :title %>
 </div><div class="field">
-<%= ::Temple::Utils.escape_html((f.label :text)) %>
+<%= f.label :text %>
 <br />
-<%= ::Temple::Utils.escape_html((f.text_area :text)) %>
+<%= f.text_area :text %>
 </div><div class="actions">
-<%= ::Temple::Utils.escape_html((f.submit)) %>
-</div><% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %>
+<%= f.submit %>
+</div><% end %><%= _slim_controls1 %>

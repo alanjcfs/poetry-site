@@ -1,4 +1,4 @@
-<h3><%= ::Temple::Utils.escape_html((@poem.title)) %>
+<h3><%= @poem.title %>
 
-</h3><p><%= ::Temple::Utils.escape_html((@poem.text&.html_safe)) %>
+</h3><p><%= @poem.text&.html_safe %>
 </p>
