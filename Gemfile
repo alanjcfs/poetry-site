@@ -52,7 +52,6 @@ gem 'kaminari', '~> 1.2'
 gem 'ransack'
 gem 'twitter', '~> 5.0'
 gem 'nokogiri', require: false
-gem 'slim-rails'
 gem "devise", "~> 4.7"
 gem 'pundit'
 
