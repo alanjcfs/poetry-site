@@ -1,0 +1,7 @@
+<h1>Editing poem
+</h1>
+<%= ::Temple::Utils.escape_html((render 'form')) %>
+
+<% _slim_controls1 = link_to 'Show', @poem do
+ %>|
+<% end %><%= ::Temple::Utils.escape_html((_slim_controls1)) %><%= ::Temple::Utils.escape_html((link_to 'Back', poems_path)) %>

@@ -1,0 +1,17 @@
+<p id="notice">
+<%= ::Temple::Utils.escape_html((notice)) %>
+
+</p><div class="h3">
+<b>Johnson #</b>
+<%= ::Temple::Utils.escape_html((@poem.johnson)) %>
+
+</div><div class="h3">
+<b>Text</b>
+<%= ::Temple::Utils.escape_html((@poem.text&.html_safe)) %>
+
+</div><div class="h3">
+<b>Plain Text</b>
+<pre>
+<%= ::Temple::Utils.escape_html((@poem.plain_text&.html_safe)) %>
+
+</pre></div><%= ::Temple::Utils.escape_html((link_to 'Back', poems_path)) %>
