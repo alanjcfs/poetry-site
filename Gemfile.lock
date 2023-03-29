@@ -46,6 +46,8 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     arel (9.0.0)
     bcrypt (3.1.13)
+    bootsnap (1.16.0)
+      msgpack (~> 1.2)
     buftok (0.2.0)
     builder (3.2.4)
     ckeditor (4.2.4)
@@ -137,6 +139,7 @@ GEM
     minitest-spec-rails (5.4.0)
       minitest (~> 5.0)
       rails (>= 4.1)
+    msgpack (1.6.1)
     multipart-post (2.3.0)
     naught (1.1.0)
     net-imap (0.3.4)
@@ -269,6 +272,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootsnap
   ckeditor
   coffee-rails
   dalli

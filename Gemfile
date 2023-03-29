@@ -72,3 +72,5 @@ gem 'ckeditor'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'bootsnap'
