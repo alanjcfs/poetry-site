@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
-ruby '2.7.6'
+ruby '3.0.5'
 
 gem 'rails', '~> 5.2.4'
 gem 'puma'
@@ -50,7 +50,7 @@ end
 gem 'jquery-rails'
 gem 'kaminari', '~> 1.2'
 gem 'ransack'
-gem 'twitter', '~> 5.0'
+gem 'twitter', '~> 6.0'
 gem 'nokogiri', require: false
 gem "devise", "~> 4.7"
 gem 'pundit'
