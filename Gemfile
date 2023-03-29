@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
 ruby '2.7.6'
 
-gem 'rails', '5.2.4.3'
+gem 'rails', '~> 5.2.4'
 gem 'puma'
 
 # Bundle edge Rails instead:
