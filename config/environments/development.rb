@@ -1,5 +1,5 @@
-require "active_support/core_ext/integer/time"
 require Rails.root.join('lib', 'postgres_cache_store')
+require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -31,7 +31,7 @@ Rails.application.configure do
   else
     config.action_controller.perform_caching = false
 
-    config.cache_store = PostgresCacheStore.new
+    config.cache_store = :null_store
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
