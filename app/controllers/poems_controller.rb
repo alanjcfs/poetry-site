@@ -5,7 +5,7 @@ class PoemsController < ApplicationController
   def index
     # @poems = Poem.order('johnson ASC').page params[:page]
 
-    @poems = q.result(:distinct => true).order('johnson ASC').page params[:page]
+    @poems = q.result(:distinct => true).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -96,7 +96,7 @@ class PoemsController < ApplicationController
 
   protected
   def q
-    @q ||= Poem.search params[:q]
+    @q ||= Poem.ransack params[:q]
   end
 
   def cache_key_for_poems
