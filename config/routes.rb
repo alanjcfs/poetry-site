@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :poems, only: [:index, :show] do
     get 'random', on: :collection
+    match 'search' => 'poems#search', via: [:get, :post], as: :search
   end
 
   root to: 'poems#index'

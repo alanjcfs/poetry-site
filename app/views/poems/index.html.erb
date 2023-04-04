@@ -1,26 +1,38 @@
-<h1>Listing poems
+<h1>
+  Listing poems
 </h1>
 <h2 class="search-query">Search by text in poem</h2>
-<% _slim_controls1 = search_form_for q, html: { class: 'search-query' } do |f|
- %><div class="form-group">
-<%= f.label :text_cont, class: "sr-only" %>
-<%= f.text_field :text_cont, placeholder: "Text contains", class: "form-control" %>
+<%= search_form_for(@q, html: { class: 'search-query' }) do |f| %>
+  <%= sort_link(@q, :johnson, 'Johnson', default_order: :asc) %>
+  <div class="form-group">
+    <%= f.label :plain_text_cont, class: "sr-only" %>
+    <%= f.search_field :plain_text_cont, placeholder: "Text contains", class: "form-control" %>
+  </div>
 
- </div><%= f.submit 'Search', class: 'btn btn-primary' %>
+  <%= f.submit 'Search', class: 'btn btn-primary' %>
+<% end %>
+<div id="paginator">
+  <%= paginate @poems %>
+</div>
 
-<% end %><%= _slim_controls1 %><div id="paginator">
-<%= paginate @poems %>
+<table class="table table-condensed table-hover">
+  <caption>List of Poems</caption>
+  <thead>
+    <tr>
+      <th>Johnson</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th colspan="2">
+        List of Poems
+      </th>
+    </tr>
+  </tfoot>
+  <tbody id="poems-list">
+    <%= render @poems %>
+  </tbody>
+</table>
 
-</div><table class="table table-condensed table-hover">
-<caption>List of Poems</caption>
-<thead>
-<tr>
-<th>Johnson</th>
-<th>Title</th>
-</tr></thead><tfoot>
-<tr>
-<th<% _slim_codeattributes1 = 2; if _slim_codeattributes1; if _slim_codeattributes1 == true %> colspan=""<% else %> colspan="<%= _slim_codeattributes1 %>"<% end; end %>>List of Poems</th>
-</tr></tfoot><tbody id="poems-list">
-<%= render @poems %>
-
-</tbody></table><p>Taken from Wikisource</p>
+      <p>Taken from Wikisource</p>
