@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 # ruby '1.9.3', engine: 'jruby', engine_version: '1.7.4'
-ruby '3.2.1'
+ruby '3.2.2'
 
 gem 'rails', '~> 7.0.4'
 gem 'puma'
